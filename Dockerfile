@@ -1,2 +1,1 @@
-ARG VERSION
-FROM nginx:${VERSION}
+FROM nginx:alpine
