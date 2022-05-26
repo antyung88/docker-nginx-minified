@@ -13,11 +13,11 @@ jobs:
       - name: Check Out Repo
         uses: actions/checkout@v2
         
-      - run: docker build ./. -t nginx.slim
+      - run: docker build ./. -t nginx.slim:latest
       - run: curl -L -O https://downloads.dockerslim.com/releases/1.37.3/dist_linux.tar.gz
       - run: tar -zxvf dist_linux.tar.gz
       - run: script -q -c "./dist_linux/docker-slim --debug version"
-      - run: script -q -c "./dist_linux/docker-slim build --target flask-minified --http-probe-off --tag ghcr.io/antyung88/nginx.slim"
+      - run: script -q -c "./dist_linux/docker-slim build --target flask-minified --http-probe-off --tag ghcr.io/antyung88/nginx.slim:latest"
       
       - name: Login to Github Packages
         uses: docker/login-action@v1
@@ -28,4 +28,4 @@ jobs:
           
       - name: Push
         run: |
-          docker push ghcr.io/antyung88/nginx.slim
+          docker push ghcr.io/antyung88/nginx.slim:latest
