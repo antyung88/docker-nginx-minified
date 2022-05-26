@@ -17,7 +17,7 @@ jobs:
       - run: curl -L -O https://downloads.dockerslim.com/releases/1.37.3/dist_linux.tar.gz
       - run: tar -zxvf dist_linux.tar.gz
       - run: script -q -c "./dist_linux/docker-slim --debug version"
-      - run: script -q -c "./dist_linux/docker-slim build --target nginx.slim:latest --http-probe-off --tag ghcr.io/antyung88/nginx.slim:latest"
+      - run: script -q -c "./dist_linux/docker-slim build --target nginx.slim:latest --http-probe-off --include-path /etc/nginx --tag ghcr.io/antyung88/nginx.slim:latest"
       
       - name: Login to Github Packages
         uses: docker/login-action@v1
